@@ -1,0 +1,19 @@
+[Script]
+# 去广告脚本
+https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/Kuwo/kuwo.js, type=http-response
+
+[URL Rewrite]
+# 屏蔽广告
+^https?:\/\/mobilead\.kuwo\.cn\/EcomResourceServer\/((getIOSIsHideAd|getMotor)\.do|adEarnGuajian\/adinfo), reject
+^https?:\/\/rich\.kuwo\.cn\/(AdService|ecom)\/kaiping\/ad[iI]nfo, reject
+^https?:\/\/wapi\.kuwo\.cn\/openapi\/v1\/user\/adVip\/info, reject
+^https?:\/\/wapi\.kuwo\.cn\/openapi\/v1\/operate(\/(adVip|freeMode\/h5))?\/text, reject
+^https?:\/\/ad\.tencentmusic\.com\/config\/uni, reject
+^https?:\/\abt-kuwo\.tencentmusic\.com\/kuwo\/ui\/info, reject
+
+# 调用 JS 脚本处理
+^https?:\/\/vip1\.kuwo\.cn\/vip\/enc\/user\/vip, script=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/Kuwo/kuwo.js
+^https?:\/\/music(pay)?\.kuwo\.cn\/music.pay\?newver=3, script=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/Kuwo/kuwo.js
+^https?:\/\/.+\.kuwo\.cn\/mobi\.s\?f=kwxs&q=, script=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/Kuwo/kuwo.js
+^https?:\/\/tingshu\.kuwo\.cn\/api\/v2\/pay\/app\/getConfigInfo, script=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/Kuwo/kuwo.js
+^https?:\/\/tingshu\.kuwo\.cn\/v2\/api\/pay\/payInfo\/kwplayer\/payMiniBar, script=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/Kuwo/kuwo.js
